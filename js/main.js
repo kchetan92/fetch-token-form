@@ -30,6 +30,7 @@ var GET_TOKEN_ENDPOINT =
       headers: {
         "Content-Type": "application/json"
       },
+      mode: "no-cors",
       body: stringifyData
     })
       .then(function(response) {
