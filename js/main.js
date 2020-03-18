@@ -28,7 +28,9 @@ var GET_TOKEN_ENDPOINT =
     var credentialsRequest = fetch(GET_TOKEN_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        username: user.value,
+        password: pass.value
       },
       mode: "no-cors",
       body: stringifyData
