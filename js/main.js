@@ -27,6 +27,9 @@ var GET_TOKEN_ENDPOINT =
     //Send HTTP POST request
     var credentialsRequest = fetch(GET_TOKEN_ENDPOINT, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: stringifyData
     })
       .then(function(response) {
