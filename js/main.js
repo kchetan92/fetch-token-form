@@ -2,6 +2,14 @@
 var GET_TOKEN_ENDPOINT =
   "http://ec2-13-235-229-219.ap-south-1.compute.amazonaws.com:8080/sign_in";
 
+function checkCredentialError(res) {
+  if (res && "ok" in res && res["ok"]) {
+    return res;
+  } else {
+    throw Error("Incorrect response");
+  }
+}
+
 (function() {
   //Cache the elements;
   var form = document.getElementById("login");
@@ -27,22 +35,24 @@ var GET_TOKEN_ENDPOINT =
     //Send HTTP POST request
     var credentialsRequest = fetch(GET_TOKEN_ENDPOINT, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        username: user.value,
-        password: pass.value
-      },
-      mode: "no-cors",
       body: stringifyData
     })
       .then(function(response) {
+        return checkCredentialError(response);
+      })
+      .then(function(response) {
+        return response.text();
+      })
+      .then(function(response) {
         //expect the token in the response
         success.classList.add("show");
+        error.classList.remove("show");
         token.innerText = response;
       })
       .catch(function(response) {
         console.log(response);
         error.classList.add("show");
+        success.classList.remove("show");
       });
   });
 })();
