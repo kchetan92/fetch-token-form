@@ -290,6 +290,10 @@ textarea {
   color: red;
 }
 
+#token {
+  color: green;
+}
+
 #token-result #success,
 #token-result #fail {
   display: none;
