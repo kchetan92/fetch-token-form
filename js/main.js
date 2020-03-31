@@ -48,11 +48,13 @@ function checkCredentialError(res) {
         success.classList.add("show");
         error.classList.remove("show");
         token.innerText = response;
+        window.localStorage.setItem("token", response);
       })
       .catch(function(response) {
         console.log(response);
         error.classList.add("show");
         success.classList.remove("show");
+        window.localStorage.removeItem("token");
       });
   });
 })();

@@ -289,3 +289,16 @@ textarea {
 #error {
   color: red;
 }
+
+#token-result #success,
+#token-result #fail {
+  display: none;
+}
+
+#token-result.success #success {
+  display: block;
+}
+
+#token-result.fail #fail {
+  display: block;
+}

@@ -25,33 +25,14 @@
       </p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="content-form">
-      <h1>Login Page</h1>
-      <form id="login">
-        <div>
-          <label for="user">Username:</label>
-          <input type="text" id="user" />
-        </div>
-        <div>
-          <label for="pass">Password:</label>
-          <input type="password" id="pass" />
-        </div>
-        <input type="submit" value="Submit" id="submit" />
-      </form>
-    </div>
-
-    <div id="result">
-      <div id="success">
-        <button onclick="window.location=`/info.html`">Token Available</button>
-      </div>
-
-      <div id="error">
-        <p>Invalid request</p>
+    <div id="token-result">
+      <div id="success">The token is <span id="token"></span></div>
+      <div id="fail">
+        No token found
       </div>
     </div>
 
     <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/info.js"></script>
   </body>
 </html>
