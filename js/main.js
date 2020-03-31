@@ -18,7 +18,6 @@ function checkCredentialError(res) {
 
   var success = document.getElementById("success");
   var error = document.getElementById("error");
-  var token = document.getElementById("token");
 
   form.addEventListener("submit", function(event) {
     //Block default submit action
@@ -47,7 +46,6 @@ function checkCredentialError(res) {
         //expect the token in the response
         success.classList.add("show");
         error.classList.remove("show");
-        token.innerText = response;
         window.localStorage.setItem("token", response);
       })
       .catch(function(response) {
