@@ -276,7 +276,8 @@ textarea {
 }
 
 #success,
-#error {
+#error,
+#device-id-error {
   display: none;
   margin: 20px;
 }
@@ -286,7 +287,12 @@ textarea {
   display: block;
 }
 
-#error {
+#device-id-error.show {
+  display: inline;
+}
+
+#error,
+#device-id-error {
   color: red;
 }
 

@@ -2,6 +2,9 @@
 var GET_TOKEN_ENDPOINT =
   "http://ec2-13-235-229-219.ap-south-1.compute.amazonaws.com:8080/sign_in";
 
+var GET_DEVICE_ID =
+  "http://ec2-13-235-229-219.ap-south-1.compute.amazonaws.com:8080/getdeviceid";
+
 function checkCredentialError(res) {
   if (res && "ok" in res && res["ok"]) {
     return res;
@@ -10,7 +13,7 @@ function checkCredentialError(res) {
   }
 }
 
-(function() {
+(function () {
   //Cache the elements;
   var form = document.getElementById("login");
   var user = document.getElementById("user");
@@ -19,14 +22,42 @@ function checkCredentialError(res) {
   var success = document.getElementById("success");
   var error = document.getElementById("error");
 
-  form.addEventListener("submit", function(event) {
+  var deviceIDInput = document.getElementById("deviceid");
+  var deviceIDButton = document.getElementById("devicedID-fetch");
+  var deviceIDError = document.getElementById("device-id-error");
+
+  //gerDeviceID
+
+  deviceIDButton.addEventListener("click", function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+    fetch(GET_DEVICE_ID, {
+      method: "GET",
+    })
+      .then(function (response) {
+        return checkCredentialError(response);
+      })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (response) {
+        deviceIDInput.value = response;
+      })
+      .catch(function (response) {
+        console.log("couldn't get server id from server");
+        deviceIDError.classList.add("show");
+      });
+  });
+
+  form.addEventListener("submit", function (event) {
     //Block default submit action
     event.preventDefault();
     event.stopPropagation();
 
     var data = {
       username: user.value,
-      password: pass.value
+      password: pass.value,
+      deviceID: deviceIDInput.value,
     };
 
     var stringifyData = JSON.stringify(data);
@@ -34,21 +65,21 @@ function checkCredentialError(res) {
     //Send HTTP POST request
     var credentialsRequest = fetch(GET_TOKEN_ENDPOINT, {
       method: "POST",
-      body: stringifyData
+      body: stringifyData,
     })
-      .then(function(response) {
+      .then(function (response) {
         return checkCredentialError(response);
       })
-      .then(function(response) {
+      .then(function (response) {
         return response.text();
       })
-      .then(function(response) {
+      .then(function (response) {
         //expect the token in the response
         success.classList.add("show");
         error.classList.remove("show");
         window.localStorage.setItem("token", response);
       })
-      .catch(function(response) {
+      .catch(function (response) {
         console.log(response);
         error.classList.add("show");
         success.classList.remove("show");

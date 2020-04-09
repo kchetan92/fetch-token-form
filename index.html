@@ -30,6 +30,12 @@
       <h1>Login Page</h1>
       <form id="login">
         <div>
+          <label for="deviceid">DeviceID:</label>
+          <input type="text" id="deviceid" />
+          <button id="devicedID-fetch">Fetch Device ID</button>
+          <span id="device-id-error">Couldn't get deviceID from server</span>
+        </div>
+        <div>
           <label for="user">Username:</label>
           <input type="text" id="user" />
         </div>
