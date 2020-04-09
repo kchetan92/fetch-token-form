@@ -1,6 +1,7 @@
-var TARGET_URL = "http://192.168.5.2";
+var TARGET_URL =
+  "http://ec2-13-235-229-219.ap-south-1.compute.amazonaws.com:6868/unlockdebugaccess";
 
-(function() {
+(function () {
   var tokenDisplay = document.getElementById("token");
   var container = document.getElementById("token-result");
   var sendButton = document.getElementById("send");
@@ -13,7 +14,7 @@ var TARGET_URL = "http://192.168.5.2";
     container.classList.add("fail");
   }
 
-  sendButton.addEventListener("click", function() {
-    fetch(TARGET_URL);
+  sendButton.addEventListener("click", function () {
+    window.localStorage = TARGET_URL;
   });
 })();
