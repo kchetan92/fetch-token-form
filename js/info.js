@@ -15,6 +15,6 @@ var TARGET_URL =
   }
 
   sendButton.addEventListener("click", function () {
-    window.localStorage = TARGET_URL;
+    window.location = TARGET_URL;
   });
 })();
