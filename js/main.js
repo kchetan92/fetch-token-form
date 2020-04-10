@@ -3,7 +3,7 @@ var GET_TOKEN_ENDPOINT =
   "http://ec2-13-235-229-219.ap-south-1.compute.amazonaws.com:8080/sign_in";
 
 var GET_DEVICE_ID =
-  "http://ec2-13-235-229-219.ap-south-1.compute.amazonaws.com:8080/getdeviceid";
+  "http://ec2-13-235-229-219.ap-south-1.compute.amazonaws.com:6868/getdeviceid";
 
 function checkCredentialError(res) {
   if (res && "ok" in res && res["ok"]) {
