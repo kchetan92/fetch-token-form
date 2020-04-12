@@ -296,16 +296,19 @@ textarea {
   color: red;
 }
 
-#token {
+#token,
+#token-sent {
   color: green;
 }
 
 #token-result #success,
-#token-result #fail {
+#token-result #fail,
+#token-sent {
   display: none;
 }
 
-#token-result.success #success {
+#token-result.success #success,
+#token-sent.show {
   display: block;
 }
 
