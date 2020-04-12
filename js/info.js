@@ -19,6 +19,7 @@ var TARGET_URL =
       method: "GET",
       headers: {
         deviceID: window.localStorage.getItem("deviceID"),
+        token: window.localStorage.getItem("token"),
       },
     });
   });
