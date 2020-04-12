@@ -42,6 +42,7 @@ function checkCredentialError(res) {
       })
       .then(function (response) {
         deviceIDInput.value = response;
+        window.localStorage.setItem("deviceID", deviceIDInput.value);
       })
       .catch(function (response) {
         console.log("couldn't get server id from server");
@@ -84,6 +85,7 @@ function checkCredentialError(res) {
         error.classList.add("show");
         success.classList.remove("show");
         window.localStorage.removeItem("token");
+        window.localStorage.removeItem("deviceID");
       });
   });
 })();

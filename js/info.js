@@ -15,6 +15,11 @@ var TARGET_URL =
   }
 
   sendButton.addEventListener("click", function () {
-    window.location = TARGET_URL;
+    fetch(TARGET_URL, {
+      method: "GET",
+      headers: {
+        deviceID: window.localStorage.getItem("deviceID"),
+      },
+    });
   });
 })();
