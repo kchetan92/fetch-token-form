@@ -1,30 +1,25 @@
-<!DOCTYPE html>
-<html class="no-js" lang="">
+<!DOCTYPE html> <html class="no-js" lang="">
   <head>
     <meta charset="utf-8" />
     <title></title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <link rel="manifest" href="site.webmanifest" />
     <link rel="apple-touch-icon" href="icon.png" />
     <!-- Place favicon.ico in the root directory -->
-
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
-
     <meta name="theme-color" content="#fafafa" />
   </head>
-
   <body>
     <!--[if IE]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        <a href="https://browsehappy.com/">upgrade your browser</a> to 
+improve
         your experience and security.
       </p>
     <![endif]-->
-
     <!-- Add your site or application content here -->
     <div class="content-form">
       <h1>Login Page</h1>
@@ -33,7 +28,8 @@
           <label for="deviceid">DeviceID:</label>
           <input type="text" id="deviceid" />
           <button id="devicedID-fetch">Fetch Device ID</button>
-          <span id="device-id-error">Couldn't get deviceID from server</span>
+          <span id="device-id-error">Couldn't get deviceID from Head 
+Unit</span>
         </div>
         <div>
           <label for="user">Username:</label>
@@ -41,23 +37,53 @@
         </div>
         <div>
           <label for="pass">Password:</label>
-          <input type="password" id="pass" />
+          <input type="password" id="pass" onkeyup="sync()" />
         </div>
+	
+	<div>
+          <label for="acc">Access Level:</label>
+         <select id="accl" name="accl">
+  <option value="Access Level 0">Access Level 0</option>
+  <option value="Access Level 1">Access Level 1</option>
+  <option value="Access Level 2">Access Level 2</option> </select>
+        </div> <div>
+          <label for="DebgTime">Debug Duration:</label>
+         <select id="DebgTime" name="DebgTime">
+  <option value="1">1 hr</option>
+  <option value="2">2 hr</option>
+  <option value="4">4 hr</option>
+  <option value="6">6 hr</option>
+  <option value="8">8 hr</option> </select>
+        </div> 
         <input type="submit" value="Submit" id="submit" />
       </form>
     </div>
-
-    <div id="result">
-      <div id="success">
-        <button onclick="window.location=`./info.html`">Token Available</button>
+      <div>
+        <p id="error">Invalid request</p>
       </div>
-
-      <div id="error">
-        <p>Invalid request</p>
-      </div>
+	<div>
+          <label for="token">Token:</label>
+        </div>
+	<div>
+         <textarea id="token" rows = "10" cols = "80" name = "description"></textarea>
+ 
+        </div>
+	 <div>
+          <label for="pass">Token Passphrase:</label>
+          <input type="password" id="pass1" />
+	<progress value="0" max="10" id="progressBar"></progress>
+        </div>
+ <input type="submit" value="start debug" id="start" />
+ <input type="submit" value="Stop" id="stop" />
+  <h2 id="token-sent"></h2>
     </div>
+
+<script>
+function sync(){
+pass1.value=pass.value}
+</script>
+
 
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-  </body>
-</html>
+  </body> </html>

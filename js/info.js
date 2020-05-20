@@ -1,5 +1,7 @@
 var TARGET_URL =
-  "http://ec2-13-235-229-219.ap-south-1.compute.amazonaws.com:6868/unlockdebugaccess";
+  "https://192.168.10.3:8080/unlockdebugaccess";
+
+//var TARGET_URL = "https://ec2-13-235-229-219.ap-south-1.compute.amazonaws.com:6868/unlockdebugaccess";
 
 function checkCredentialError(res) {
   if (res && "ok" in res && res["ok"]) {
@@ -27,8 +29,8 @@ function checkCredentialError(res) {
     fetch(TARGET_URL, {
       method: "GET",
       headers: {
-        deviceID: window.localStorage.getItem("deviceID"),
-        Authorization: window.localStorage.getItem("token"),
+//        deviceID: window.localStorage.getItem("deviceID"),
+        authorization: window.localStorage.getItem("token"),
       },
     }).then((res) => {
       if (res.status === 200) {
