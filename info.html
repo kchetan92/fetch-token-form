@@ -24,14 +24,21 @@
         your experience and security.
       </p>
     <![endif]-->
-
-    <div id="token-result">
-      <div id="success">The token is "<span id="token"></span>"</div>
-      <button id="send">Send Token</button>
-      <div id="fail">
-        No token found
+    <br />
+    <br />
+    <div class="container">
+      <div class="row">
+        <div id="token-result" class="col-8">
+          <div id="success">The token is "<span id="token"></span>"</div>
+          <button id="send" class="btn btn-primary">Send Token</button>
+          <br />
+          <br />
+          <p id="fail" class="text-primary">
+            No token found
+          </p>
+          <p id="token-sent" class="text-primary"></p>
+        </div>
       </div>
-      <h2 id="token-sent"></h2>
     </div>
 
     <script src="js/plugins.js"></script>
