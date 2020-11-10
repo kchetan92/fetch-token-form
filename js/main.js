@@ -66,7 +66,12 @@ throw Error("Invalid Request");
 
 // start debug access button implementation
 
-start.addEventListener("click", function () {
+start.addEventListener("click", function (ev) {
+
+    //Stop default behavior
+    ev.stopPropagation();
+    ev.preventDefault();
+
     fetch(HU_URL + "unlockdebugaccess", {
       method: "POST",
       headers: {
@@ -94,7 +99,12 @@ start.addEventListener("click", function () {
 
 
 //stop implementation 
-stop.addEventListener("click", function () {
+stop.addEventListener("click", function (ev) {
+  
+  //Stop default behavior
+  ev.stopPropagation();
+  ev.preventDefault();
+
   tokenSent.classList.add("show"); 
 fetch(HU_URL+"stop", {
       method: "POST",
