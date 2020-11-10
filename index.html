@@ -23,13 +23,19 @@
     <![endif]-->
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="row">
-        <div class="col-8">
-          <div class="content-form">
+      <form id="login">
+        <div class="row">
+          <div class="col-10">
             <h1>Login Page</h1>
             <br />
             <br />
-            <form id="login">
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-5">
+          <div class="content-form">
+            
+            
               <div class="form-group">
                 <label for="deviceid">DeviceID</label>
                 <div class="row">
@@ -94,47 +100,53 @@
                 </div>
                 <br />
                 <br />
-                <div class="form-group">
-                  <label for="token">Token</label>
-                  <textarea
-                    id="token"
-                    rows="10"
-                    cols="80"
-                    name="description"
-                    class="form-control"
-                  ></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="pass">Token Passphrase</label>
-                  <input type="password" id="pass1" class="form-control" />
-                  <progress value="0" max="10" id="progressBar"></progress>
-                </div>
-                <div class="row">
-                  <div class="col-4">
-                    <div class="form-group">
-                      <input
-                        type="submit"
-                        value="Start debug"
-                        id="start"
-                        class="btn btn-primary"
-                      />
-                      <input
-                        type="submit"
-                        value="Stop"
-                        id="stop"
-                        class="btn btn-primary"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-8">
-                    <p id="token-sent" class="text-primary"></p>
-                  </div>
-                </div>
               </div>
-            </form>
           </div>
         </div>
+        <div class="col-5">
+          <div class="content-form">
+          <div class="form-group">
+            <label for="token">Token</label>
+            <textarea
+              id="token"
+              rows="10"
+              cols="80"
+              name="description"
+              class="form-control"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="pass">Token Passphrase</label>
+            <input type="password" id="pass1" class="form-control" />
+            <progress value="0" max="10" id="progressBar"></progress>
+          </div>
+          <div class="form-group">
+            <input
+              type="submit"
+              value="Start debug"
+              id="start"
+              class="btn btn-primary"
+            />
+            <input
+              type="submit"
+              value="Stop"
+              id="stop"
+              class="btn btn-primary"
+            />
+          </div>
+          <p id="token-sent" class="text-primary"></p>
+          <!-- <div class="row">
+            <div class="col-4">
+              
+            </div>
+            <div class="col-8">
+              
+            </div>
+          </div> -->
+        </div>
       </div>
+      </div>
+    </form>
     </div>
 
     <script>
